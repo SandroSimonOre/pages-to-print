@@ -1,0 +1,19 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    width: 40%;
+    margin: 0 auto;
+    display: grid;
+}
+
+input, button, textarea {
+    margin-top: 10px;
+}
+
+.calculate {
+    height: 48px;
+}
