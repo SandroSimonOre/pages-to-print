@@ -8,29 +8,29 @@ const btnCopySecondGroup = document.getElementById('copy-second-group');
 btnCopySecondGroup.addEventListener('click', copyPagesToPrint);
 
 function calculatePages() {
-    const firstPage = Number(document.getElementById("first-page").value);
-    //const secondPage = firstPage + 1;
+
+    let firstPage = Number(document.getElementById("first-page").value);
     let lastPage = Number(document.getElementById("last-page").value);
 
     const numberOfPages = lastPage - firstPage + 1;
 
     if ((lastPage - firstPage + 1) % 2 > 0) lastPage++;
-    let firstGroupOfPages = '';
-    let secondGroupOfPages = '';
-    let separator = ',';
-
+    
+    let firstGroupOfPages = [];
+    let secondGroupOfPages = [];
+    
     for (let i = firstPage; i <= lastPage; i = i + 2){
         
-        firstGroupOfPages += i + (i + 1 === lastPage ? '': separator);
-        secondGroupOfPages += i + 1 + (i + 1 === lastPage ? '': separator);
+        firstGroupOfPages.push(i);
+        secondGroupOfPages.push(i + 1);
         
     }
 
     const txtFirstGroupOfPages = document.getElementById('first-group');
-    txtFirstGroupOfPages.innerText = firstGroupOfPages;
+    txtFirstGroupOfPages.innerText = firstGroupOfPages.join(',');
 
     const txtSecondGroupOfPages = document.getElementById('second-group');
-    txtSecondGroupOfPages.innerText = secondGroupOfPages;
+    txtSecondGroupOfPages.innerText = secondGroupOfPages.join(',');
 
 }
 
